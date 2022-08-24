@@ -1,38 +1,91 @@
 .App {
-  text-align: center;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator {
+  background-color: black;
+  color: white;
+  border: 4px solid black;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: auto;
+  height: 340px;
+  width: 260px;
+  outline: 1px solid darkgray;
+}
+
+.screen {
+  height: 15%;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.buttons .column button {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: blue;
+  /* Center Text */
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  border-radius: 1px;
+}
+
+.column-last {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Divide Sign */
+.buttons .column-last button:first-child {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: blue;
+  /* Center Text */
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+
+  transform: translateY(8.8px);
+  border-radius: 1px;
+}
+
+/* Equals Sign */
+.buttons .column-last button:last-child {
+  display: inline-block;
+  height: 215.7px;
+  width: 40px;
+  background-color: blue;
+  /* Center Text */
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+
+  transform: translateY(27.1px);
+  border-radius: 1px;
+}
+
+button {
+  border: 1px solid white;
+  border-radius: 5px;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
