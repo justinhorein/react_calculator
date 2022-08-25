@@ -1,43 +1,58 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
 
-function App() {
+const App = () => (
+  <div className="App">
+    <Calculator/>
+  </div>
+);
+
+function Calculator() {
+  const [screen, setScreen] = useState(0);
+
   return (
-    <div className="App">
-      <div className="calculator">
-        <div className="screen">
-        
+    <div className="calculator">
+      <div className="screen">
+        { screen }
+      </div>
+      <div className="buttons">
+        <div className="column">
+          <Button value="+"></Button>
+          <Button value="7"></Button>
+          <Button value="4"></Button>
+          <Button value="1"></Button>
+          <Button value="0"></Button>
         </div>
-        <div className="buttons">
-          <div className="column">
-            <button>+</button>
-            <button>7</button>
-            <button>4</button>
-            <button>1</button>
-            <button>0</button>
-          </div>
-          <div className="column">
-            <button>-</button>
-            <button>8</button>
-            <button>5</button>
-            <button>2</button>
-            <button>.</button>
-          </div>
-          <div className="column">
-            <button>x</button>
-            <button>9</button>
-            <button>6</button>
-            <button>3</button>
-            <button>AC</button>
-          </div>
-          <div className="column-last">
-            <button>÷</button>
-            <button>=</button>
-          </div>
+        <div className="column">
+          <Button value="-"></Button>
+          <Button value="8"></Button>
+          <Button value="5"></Button>
+          <Button value="2"></Button>
+          <Button value="."></Button>
+        </div>
+        <div className="column">
+          <Button value="x"></Button>
+          <Button value="9"></Button>
+          <Button value="6"></Button>
+          <Button value="3"></Button>
+          <Button value="AC"></Button>
+        </div>
+        <div className="column-last">
+          <Button value="÷"></Button>
+          <Button value="="></Button>
         </div>
       </div>
     </div>
   );
 }
+
+function Button(props) {
+  return (
+    <button>
+      {props.value}
+    </button>
+  )
+};
 
 export default App;
