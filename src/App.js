@@ -29,7 +29,7 @@ function Calculator() {
     else if (screen == 0) {
       setScreen(num);
     }
-    else if (screen != 0 && operator == "+") {
+    else if (screen != 0 && operator == "+" || operator == "-") {
       setScreen(num);
     }
     else {
@@ -38,8 +38,12 @@ function Calculator() {
   }
 
   function handleOperator(op) {
-   
-    if (firstNum == "") {
+    if (op == "AC") {
+      setScreen("0");
+      setFirstNum("");
+      setOperator("");
+    }
+    else if (firstNum == "") {
       setFirstNum(screen);
       setScreen("0");
       setOperator(op);
@@ -49,6 +53,12 @@ function Calculator() {
         let tot = 0;
         if (operator == "+") {
           tot = parseFloat(firstNum) + parseFloat(screen);
+          tot = tot.toString();
+          setScreen(tot);
+          setOperator("");
+        }
+        else if (operator == "-") {
+          tot = parseFloat(firstNum) - parseFloat(screen);
           tot = tot.toString();
           setScreen(tot);
           setOperator("");
@@ -69,6 +79,19 @@ function Calculator() {
           setFirstNum(tot);
         }
       }
+      else if (op == "-") {
+        if (operator == "") {
+            setOperator(op);
+        }
+        else {
+          let tot = parseFloat(firstNum) - parseFloat(screen);
+          tot = tot.toString();
+          setScreen(tot);
+          setOperator("-");
+          setFirstNum(tot);
+        }
+      }
+
     }
     // console.log("Operator " + operator);
   }
