@@ -12,24 +12,24 @@ function Calculator() {
   const [screen, setScreen] = useState("0");
   const [firstNum, setFirstNum] = useState("");
   const [operator, setOperator] = useState("");
-  // const [secondNum, setSecondNum] = useState("");
+  const [total, setTotal] = useState("");
 
   function handleNum(num) {
     let decimals = screen.split(".").length - 1;
 
-    if (decimals == 1 && num == ".") {
+    if (decimals == "1" && num == ".") {
       // do nothing
     }
-    else if (screen == 0 && num == ".") {
+    else if (screen == "0" && num == ".") {
       setScreen(screen + num);
     } 
+    else if (screen == "0") {
+      setScreen(num);
+    }
     else if (screen == "0.") {
       setScreen(screen + num);
     }
-    else if (screen == 0) {
-      setScreen(num);
-    }
-    else if (screen != 0 && operator == "+" || operator == "-") {
+    else if (screen == total) {
       setScreen(num);
     }
     else {
@@ -50,50 +50,70 @@ function Calculator() {
     }
     else {
       if (op == "=") {
-        let tot = 0;
+        let tot;
         if (operator == "+") {
-          tot = parseFloat(firstNum) + parseFloat(screen);
-          tot = tot.toString();
+          tot = (parseFloat(firstNum) + parseFloat(screen)).toString();
+          setTotal(tot);
           setScreen(tot);
           setOperator("");
         }
         else if (operator == "-") {
-          tot = parseFloat(firstNum) - parseFloat(screen);
-          tot = tot.toString();
+          tot = (parseFloat(firstNum) - parseFloat(screen)).toString();
+          setTotal(tot);
           setScreen(tot);
           setOperator("");
         }
 
         setFirstNum(tot);
       }
-      else if (op == "+") {
-        //  If Plus sign was previously used
+      else {
+        //  If equal sign was previously used
         if (operator == "") {
           setOperator(op);
         }
-        else {
-          let tot = parseFloat(firstNum) + parseFloat(screen);
-          tot = tot.toString();
+        else if (operator == "+") {
+          let tot = (parseFloat(firstNum) + parseFloat(screen)).toString();
+          setTotal(tot);
           setScreen(tot);
-          setOperator("+");
+          setOperator(op);
+          setFirstNum(tot);
+        }
+        else if (operator == "-") {
+          let tot = (parseFloat(firstNum) - parseFloat(screen)).toString();
+          setTotal(tot);
+          setScreen(tot);
+          setOperator(op);
+          setFirstNum(tot);
+        }
+        else if (operator == "x") {
+          let tot = (parseFloat(firstNum) * parseFloat(screen)).toString();
+          setTotal(tot);
+          setScreen(tot);
+          setOperator(op);
+          setFirstNum(tot);
+        }
+        else if (operator == "÷") {
+          let tot = (parseFloat(firstNum) / parseFloat(screen)).toString();
+          setTotal(tot);
+          setScreen(tot);
+          setOperator(op);
           setFirstNum(tot);
         }
       }
-      else if (op == "-") {
-        if (operator == "") {
-            setOperator(op);
-        }
-        else {
-          let tot = parseFloat(firstNum) - parseFloat(screen);
-          tot = tot.toString();
-          setScreen(tot);
-          setOperator("-");
-          setFirstNum(tot);
-        }
-      }
+      // else if (op == "-") {
+      //   if (operator == "") {
+      //       setOperator(op);
+      //   }
+      //   else {
+      //     let tot = parseFloat(firstNum) - parseFloat(screen);
+      //     tot = tot.toString();
+      //     setScreen(tot);
+      //     setOperator("-");
+      //     setFirstNum(tot);
+      //   }
+      // }
 
     }
-    // console.log("Operator " + operator);
   }
 
   return (
