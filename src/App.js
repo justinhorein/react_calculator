@@ -118,6 +118,9 @@ function Calculator() {
   }
 
   return (
+    <>
+    <div className="Heading">Calculator</div>
+    
     <div className="calculator">
       <div className="screen">
         { screen }
@@ -150,6 +153,7 @@ function Calculator() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

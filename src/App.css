@@ -1,27 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 .App {
   background-color: blueviolet;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  min-height: 215px;
   height: 100vh;
+}
+
+.Heading {
+  font-family: 'Dancing Script', cursive;
+  color: rgb(247, 5, 5);
+  font-size: 70px;
+  
+  margin: auto auto 0%;
 }
 
 .calculator {
   background-color: black;
   color: white;
-  border: 4px solid black;
+  border: 4px solid lightgray;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   margin: auto;
   height: 340px;
   width: 260px;
-  outline: 1px solid darkgray;
+  outline: 2px solid white;
+  box-shadow: 4px 4px 15px 0px black;
 }
 
 .screen {
   height: 48px;
+  margin: 5px;
   background-color: white;
-  margin-bottom: 5px;
   color: black;
   vertical-align: middle;
   line-height: 48px;
@@ -77,7 +90,7 @@
 /* Equals Sign */
 .buttons .column-last button:last-child {
   display: inline-block;
-  height: 215.7px;
+  height: 209.1px;
   width: 40px;
   background-color: blue;
   /* Center Text */
@@ -85,7 +98,7 @@
   vertical-align: middle;
   line-height: 40px;
 
-  transform: translateY(27.1px);
+  transform: translateY(24.6px);
   border-radius: 1px;
 }
 
